@@ -20,7 +20,7 @@ Create a fully qualified alertmanager name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 */}}
 {{- define "alertmanager.fullname" -}}
-{{- printf "%s-%s" .Release.Name "alerts" | trunc 63 -}}
+{{- printf "%s-%s" (include "fullname" .) "alerts" | trunc 63 -}}
 {{- end -}}
 
 {{/*
@@ -28,7 +28,7 @@ Create a fully qualified kube-state-metrics name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 */}}
 {{- define "kubeStateMetrics.fullname" -}}
-{{- printf "%s-%s" .Release.Name "kube-state-metrics" | trunc 63 -}}
+{{- printf "%s-%s" (include "fullname" .) "kube-state-metrics" | trunc 63 -}}
 {{- end -}}
 
 {{/*
@@ -36,5 +36,5 @@ Create a fully qualified server name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 */}}
 {{- define "server.fullname" -}}
-{{- printf "%s-%s" .Release.Name "server" | trunc 63 -}}
+{{- printf "%s-%s" (include "fullname" .) "server" | trunc 63 -}}
 {{- end -}}
