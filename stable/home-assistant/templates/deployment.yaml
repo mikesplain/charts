@@ -72,9 +72,6 @@ spec:
         {{- end }}
         {{- end }}
       {{- end }}
-      {{- if .Values.extraInitContainers }}
-      {{- toYaml .Values.extraInitContainers | nindent 6 }}
-      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
