@@ -43,8 +43,8 @@ spec:
       hostNetwork: {{ .Values.hostNetwork }}
       dnsPolicy: ClusterFirst
       {{- end }}
-      initContainers:
       {{- if .Values.git.enabled }}
+      initContainers:
       - name: git-sync
         image: "{{ .Values.git.image.repository }}:{{ .Values.git.image.tag }}"
         imagePullPolicy: {{ .Values.git.image.pullPolicy }}
